@@ -2,7 +2,7 @@ schemaVersion: 1.0.0
 extension:
   id: pqc
   name: PQC Readiness Extension
-  version: 0.2.0
+  version: 0.5.0
   description: Extends the assessment model with post-quantum cryptography (PQC) readiness criteria, maturity guidance, and PQC-specific requirement weight overlays to evaluate strategic, policy, compliance, and operational preparedness for quantum-safe PKI transition.
   documentation: https://pkic.org/wg/pkimm/extensions/pqc/
   compatibility:
