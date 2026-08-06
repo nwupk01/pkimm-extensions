@@ -1,8 +1,37 @@
+# =====================================================================
+# PQC Readiness Extension - Change Log
+# ---------------------------------------------------------------------
+# 0.5.1  - Each Governance category now lists its supporting references,
+#            so they display in the assessment application. The category
+#            reference lists were previously empty, which is why no
+#            references appeared in the tool. Added a note on COM(2026) 13
+#            as a forthcoming obligation to the Compliance guidance
+#            (tracker item 11, content side). Documentation URL updated
+#            to the current pkic.org extensions path. No weights,
+#            identifiers, or structural elements changed.
+# 0.5.0  - Added 10 regulatory/standards references to the references
+#            block (US Quantum Prep Act, CSWP 48 draft, CISA product
+#            categories, CSWP 39 final, FIPS 140-2 sunset, NIS2
+#            amendment proposal, and APAC: CRYPTREC, KCMVP, Singapore
+#            CSA, Australian ISM). Sources: R6, R8, R15.
+#            Draft/advisory/proposal status noted per entry to prevent
+#            overclaim. UK NCSC timelines not re-added (already present
+#            as uk-ncsc-pqc-migration).
+# 0.4.0  - Persona broadening in Governance (community feedback).
+#          G.strategy-and-vision: added software-vendor / product-team
+#            examples to guidance and Levels 3-5. (Source: R8)
+#          G.policies-and-documentation: added certificate-consumer
+#            framing to guidance and Level 3. (Source: R7)
+# 0.3.0  - Expanded segregation-of-duties content in
+#            G.processes-and-procedures: guidance, Levels 1, 3, 4.
+#            (Source: R6, Policy Management Authority Chair)
+# 0.2.0  - Governance relevance + 18 overlays; community RFC baseline.
+# =====================================================================
 schemaVersion: 1.0.0
 extension:
   id: pqc
   name: PQC Readiness Extension
-  version: 0.2.0
+  version: 0.5.1
   description: Extends the assessment model with post-quantum cryptography (PQC) readiness criteria, maturity guidance, and PQC-specific requirement weight overlays to evaluate strategic, policy, compliance, and operational preparedness for quantum-safe PKI transition.
   documentation: https://pkic.org/wg/pkimm/extensions/pqc/
   compatibility:
@@ -47,6 +76,65 @@ references:
   title: NIST IR 8413 - Status Report on the Third Round of the NIST Post-Quantum Cryptography Standardization Process
   authority: NIST
   url: https://csrc.nist.gov/pubs/ir/8413/final
+- id: us-quantum-prep-act-2022
+  title: Quantum Computing Cybersecurity Preparedness Act (Public Law 117-260)
+  authority: United States Congress
+  regions: ["US"]
+  url: https://www.congress.gov/bill/117th-congress/house-bill/7535/text
+  # STATUS: Enacted law, 21 December 2022. Source: R6.
+- id: nist-cswp-48-ipd
+  title: "NIST CSWP 48 (Initial Public Draft): Mappings of Migration to PQC Project Capabilities to Risk Framework Documents"
+  authority: NIST National Cybersecurity Center of Excellence (NCCoE)
+  regions: ["US"]
+  url: https://csrc.nist.gov/pubs/cswp/48/mapping-migration-to-pqc-project-capabilities-to-r/ipd
+  # STATUS: Initial Public Draft. Cite as draft until NIST publishes final. Source: R6.
+- id: cisa-pqc-product-categories-2026
+  title: Product Categories for Technologies That Use Post-Quantum Cryptography Standards
+  authority: Cybersecurity and Infrastructure Security Agency (CISA)
+  regions: ["US"]
+  url: https://www.cisa.gov/resources-tools/resources/product-categories-technologies-use-post-quantum-cryptography-standards
+  # STATUS: Advisory federal buying guidance, NOT a procurement mandate. Source: R8.
+- id: nist-cswp-39
+  title: "NIST CSWP 39: Considerations for Achieving Crypto-Agility - Strategies and Practices"
+  authority: NIST
+  regions: ["US"]
+  url: https://csrc.nist.gov/pubs/cswp/39/considerations-for-achieving-crypto-agility/final
+  # STATUS: Final, 19 December 2025. Catalogues the CSWP 39 already cited in processes guidance.
+- id: us-fips-140-2-sunset-2026
+  title: FIPS 140-2 Validation Sunset (CMVP Historical List Transition)
+  authority: NIST Cryptographic Module Validation Program (CMVP)
+  regions: ["US", "CA"]
+  url: https://csrc.nist.gov/Projects/FIPS-140-3-Transition-Effort
+  # STATUS: Module validation (140-2 to 140-3), not a PQC algorithm standard. Source: R8.
+- id: eu-nis2-amendment-com-2026-13
+  title: "COM(2026) 13 final: Proposed Directive Amending NIS2 (Post-Quantum Cryptography Provision)"
+  authority: European Commission
+  regions: ["EU"]
+  url: https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=COM:2026:13:FIN
+  # STATUS: PROPOSED directive, not adopted law. Frame as proposed/forthcoming. Source: R8.
+- id: jp-cryptrec
+  title: CRYPTREC - Cryptography Research and Evaluation Committees
+  authority: CRYPTREC (Japan)
+  regions: ["JP"]
+  url: https://www.cryptrec.go.jp/en/
+  # STATUS: Acknowledgement-level for v1.0. Source: R15.
+- id: kr-kcmvp
+  title: KCMVP - Korea Cryptographic Module Validation Program
+  authority: National Intelligence Service (Republic of Korea)
+  regions: ["KR"]
+  # STATUS: Acknowledgement-level for v1.0. URL pending verification. Source: R15.
+- id: sg-csa-quantum
+  title: Singapore CSA Guidance on Quantum-Safe Transition
+  authority: Cyber Security Agency of Singapore (CSA)
+  regions: ["SG"]
+  url: https://www.csa.gov.sg/
+  # STATUS: Acknowledgement-level for v1.0. Replace with specific advisory URL when confirmed. Source: R15.
+- id: au-ism
+  title: Australian Government Information Security Manual (ISM)
+  authority: Australian Signals Directorate (ASD)
+  regions: ["AU"]
+  url: https://www.cyber.gov.au/resources-business-and-government/essential-cyber-security/ism
+  # STATUS: Acknowledgement-level for v1.0. Verify deprecation dates before specific claims. Source: R15.
 relevance:
   modules:
   - id: G
@@ -55,6 +143,7 @@ relevance:
       weight: 5
       guidance: |
         Strategy and vision form the foundation for quantum-safe transition. Without executive sponsorship recognizing the quantum threat, PQC migration will lack resources and priority. The Dutch Migration Handbook identifies organizational personas ranging from 'unaware' to 'frontrunner,' with most European organizations currently in early awareness stages. Strategic planning must address the Mosca inequality: if data sensitivity lifespan plus migration time exceeds time until cryptographically relevant quantum computers (CRQC), action is required now.
+        The criteria apply to certificate issuers (CA/TSP) and to organizations that build PKI-dependent products. For a software vendor, the strategic question is whether PQC enters the product roadmap and customer commitments, not just the internal certificate estate.
       assessment: |
         Key Probes:
           - Can executives articulate the quantum threat to PKI operations?
@@ -78,7 +167,12 @@ relevance:
           - Level 3: Board presentation on quantum risk; PQC working group charter; budget line item for PQC; Mosca analysis document
           - Level 4: Quarterly PQC steering committee minutes; ERM risk register with quantum risk entry; KRI dashboard showing PQC metrics; multi-year migration budget approval
           - Level 5: Published thought leadership; standards body participation records; regulator consultation responses; crypto-agility architecture documentation
-      references: []
+      references:
+      - mosca-inequality
+      - dutch-pqc-handbook
+      - uk-ncsc-pqc-migration
+      - anssi-pqc-position
+      - bsi-pqc-migration
       levels:
       - number: 1
         name: Initial
@@ -106,6 +200,7 @@ relevance:
           - Board/governance body briefed on quantum risk and migration requirements
           - Budget allocation for PQC assessment and initial planning activities
           - Cross-functional PQC working group or steering committee established
+          - Software vendors and product teams: PQC migration is a tracked item on the product roadmap, with customer-facing timelines for quantum-safe support
       - number: 4
         name: Managed
         description: |
@@ -118,6 +213,7 @@ relevance:
           - Board receives regular quantum readiness updates as governance matter
           - Multi-year budget secured for complete migration programme
           - Strategy explicitly addresses hybrid vs pure PQ approach with rationale
+          - Software vendors and product teams: PQC commitments appear in product release planning and are communicated to customers
       - number: 5
         name: Optimized
         description: |
@@ -129,11 +225,13 @@ relevance:
           - Strategy enables crypto-agility as ongoing capability, not one-time transition
           - Proactive engagement with regulators on PQC implementation approaches
           - Strategic partnerships with quantum-safe technology providers established
+          - Software vendors and product teams: quantum-safe support ships before customers require it, used as a product differentiator
     - id: policies-and-documentation
       weight: 5
       guidance: |
         RFC 3647 governs Certificate Policy and CPS structure. PQC migration requires fundamental policy updates: algorithm specifications must expand to include NIST FIPS 203/204/205 (ML-KEM, ML-DSA, SLH-DSA), deprecation schedules must align with SP 800-131A Rev 3 and regional requirements, hybrid vs pure PQC strategy must be documented, and Cryptographic Bill of Materials (CBOM) requirements are emerging as compliance necessity.
         Multi-jurisdiction complexity creates policy challenges: European regulators (BSI, ANSSI) require hybrid signatures during transition, while CNSA 2.0 recommends pure PQ for US National Security Systems. Key management policies must address larger key sizes, HSM PQC support requirements, and stateful hash-based signature state management where applicable.
+        These criteria are written for a certificate issuer maintaining CP/CPS. An organization that only consumes certificates should read them as requirements to place on its providers: require PQC provisions, deprecation schedules, and CBOM support from CA and trust-service suppliers, and check them through procurement and contracts rather than writing the policy itself.
       assessment: |
         Key Probes:
           - When was CP/CPS last updated? Does it reference PQC algorithms?
@@ -154,7 +252,12 @@ relevance:
           - Level 3: CP/CPS amendment project plan; approved algorithm list with PQC entries and deprecation dates; CBOM generation tool deployed; hybrid strategy decision document
           - Level 4: Published CP/CPS with PQC provisions; algorithm governance meeting minutes; CBOM integrated with CI/CD pipeline; compliance audit report including algorithm verification
           - Level 5: Policy templates shared with industry; algorithm governance anticipating draft standards; CBOM feeding into ERM dashboard; multi-jurisdiction policy variant management system
-      references: []
+      references:
+      - nist-fips-203
+      - nist-fips-204
+      - nist-fips-205
+      - nist-ir-8413
+      - etsi-tr-103-619
       levels:
       - number: 1
         name: Initial
@@ -183,6 +286,7 @@ relevance:
           - Key Management Policy updated for PQC considerations (larger keys, HSM support, stateful HBS state management)
           - CBOM framework adopted; initial cryptographic inventory underway
           - Multi-jurisdiction policy alignment documented
+          - Certificate-consuming organizations: PQC requirements are written into procurement and supplier criteria, and providers' PQC roadmaps are reviewed
       - number: 4
         name: Managed
         description: |
@@ -203,7 +307,7 @@ relevance:
     - id: compliance
       weight: 5
       guidance: |
-        The regulatory landscape for PQC is evolving rapidly with binding requirements now in effect. DORA establishes comprehensive ICT risk management requirements for EU financial entities from January 2025, creating regulatory pressure for cryptographic resilience. The EU Coordinated Roadmap recommends PQC preparations by 2026 with critical infrastructure protection by 2030. The 18 EU Member States Joint Statement urges prioritization and roadmap development for PQC transition. CNSA 2.0 mandates PQC for US National Security Systems with preference by 2025, exclusive use by 2030-2035.
+        The regulatory landscape for PQC is evolving rapidly with binding requirements now in effect. DORA establishes comprehensive ICT risk management requirements for EU financial entities from January 2025, creating regulatory pressure for cryptographic resilience. The EU Coordinated Roadmap recommends PQC preparations by 2026 with critical infrastructure protection by 2030. The 18 EU Member States Joint Statement urges prioritization and roadmap development for PQC transition. CNSA 2.0 mandates PQC for US National Security Systems with preference by 2025, exclusive use by 2030-2035. A proposed amendment to NIS2, COM(2026) 13, would add national PQC transition policy obligations for Member States. It remains a legislative proposal rather than adopted law and is tracked here as a forthcoming obligation.
         Industry standards are adapting: CA/Browser Forum S/MIME BR includes PQC algorithms (Ballot SMC013), ETSI ESI standards are updating for QSC/PQC, and WebTrust/ETSI audit criteria are evolving. Non-conformity with PQC requirements carries material risk: certificates issued today with quantum-vulnerable cryptography may be compromised before expiration.
       assessment: |
         Sector-Specific Considerations:
@@ -225,7 +329,16 @@ relevance:
           - Level 3: Regulatory mapping spreadsheet/document; gap analysis report; compliance roadmap with PQC milestones; audit criteria review request
           - Level 4: Quarterly compliance status reports; third-party audit report including PQC scope; regulatory horizon scanning process documentation; trend analysis of algorithm-related non-conformities
           - Level 5: Regulatory consultation submissions; standards body meeting attendance records; published compliance frameworks; cross-border compliance harmonization documentation
-      references: []
+      references:
+      - us-quantum-prep-act-2022
+      - eu-nis2-amendment-com-2026-13
+      - cisa-pqc-product-categories-2026
+      - us-fips-140-2-sunset-2026
+      - nist-cswp-48-ipd
+      - jp-cryptrec
+      - kr-kcmvp
+      - sg-csa-quantum
+      - au-ism
       levels:
       - number: 1
         name: Initial
@@ -288,6 +401,7 @@ relevance:
       guidance: |
         The transition to post-quantum cryptography transforms operational processes fundamentally. This is not merely an algorithm swap; it represents a multi-year major programme requiring new procedures across every PKI operational domain.
         Key process considerations include: key ceremony evolution for PQC algorithms (larger keys, hybrid generation, stateful HBS state management), crypto-agility procedures per NIST CSWP 39, quantum risk assessment integration using the Mosca inequality framework, operational change management for phased migration, incident response for cryptographic events, and extended segregation of duties for PQC-specific roles.
+        Segregation of duties must extend to PQC-specific roles so that algorithm selection, implementation, and validation are not concentrated in one person. The party that approves which algorithms enter the trust store should not be the same party that implements them, and independent validation should confirm the implementation matches the approved cryptographic policy. This mirrors the established CA separation between policy authority and operations, applied to cryptographic agility.
       assessment: |
         Key Probes:
           - Can the organization demonstrate a key ceremony script that includes PQC algorithms?
@@ -314,7 +428,10 @@ relevance:
           - Crypto inventory coverage: Percentage of systems with CBOM
           - Incident response time: Hours from cryptographic event detection to containment
           - Procedure currency: Days since last PQC procedure review
-      references: []
+      references:
+      - nist-cswp-39
+      - dutch-pqc-handbook
+      - etsi-tr-103-619
       levels:
       - number: 1
         name: Initial
@@ -324,7 +441,7 @@ relevance:
           - Risk assessment methodology does not incorporate quantum threat modelling
           - No crypto-agility procedures exist; algorithm changes require ad-hoc engineering
           - Incident response procedures do not include cryptographic failure scenarios
-          - Segregation of duties does not address PQC-specific roles
+          - No separation between those who select cryptographic algorithms and those who implement them; PQC-specific roles are undefined
       - number: 2
         name: Foundational
         description: |
@@ -349,8 +466,8 @@ relevance:
           - Crypto-agility procedures documented with algorithm substitution and rollback
           - Change management integrates PQC migration changes with CAB process
           - Incident response extended for cryptanalytic breakthrough and algorithm deprecation scenarios
-          - PQC-specific roles defined (migration lead, crypto-agility coordinator)
-          - Dual control requirements extended to PQC operations
+          - PQC-specific roles defined and separated: algorithm-approval authority, implementation, and validation are held by different parties (for example migration lead, crypto-agility coordinator, and an independent reviewer)
+          - Dual control extended to PQC key generation and algorithm-change approval
       - number: 4
         name: Managed
         description: |
@@ -361,7 +478,7 @@ relevance:
           - Time-to-transition metrics established and monitored
           - Change management mature with cross-functional CAB including crypto-competent reviewers
           - Incident response tested through tabletop exercises including cryptographic scenarios
-          - Segregation of duties enforced and verified through audit
+          - Segregation of duties enforced and verified through audit, confirming that algorithm approval, implementation, and validation remain separated in practice
       - number: 5
         name: Optimized
         description: |
@@ -375,6 +492,15 @@ relevance:
           - Contributing to industry procedure standards
           - Procedures support crypto-agility beyond PQC for future algorithm transitions
 overlays:
+  # OVERLAY STACKING (design note, addresses community feedback on Q5):
+  # Overlays are applied per requirement. Where more than one overlay
+  # affects a requirement's effective weight, multiplier-type overlays
+  # compound multiplicatively rather than additively. This is intended:
+  # a requirement that is important on two independent grounds should be
+  # emphasized more than one important on a single ground. Effective and
+  # base weights are both shown in-tool so the effect is transparent.
+  # Addition- and override-type overlays do not compound; an override
+  # replaces the base weight, and an addition adjusts it once.
   modules:
   - id: G
     categories:
