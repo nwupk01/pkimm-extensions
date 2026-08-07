@@ -14,15 +14,15 @@ The quantum threat fundamentally changes what PKI maturity means. An organizatio
 
 This extension is **under development**. It is authored and maintained by Kennedy Nwup (Afield AB), Vice Chair of the PKIMM Working Group.
 
-- **Complete** — Governance module (strategy and vision, policies and documentation, compliance, processes and procedures): full Level 1–5 criteria, assessor guidance, evidence examples, overlay weights, and 20 status-labelled regulatory and standards references listed per category for display in the assessment application. Includes persona coverage for software vendors and certificate-consuming organizations (v0.4.0) and reworked segregation-of-duties criteria (v0.3.0).
+- **Complete** — Governance module (strategy and vision, policies and documentation, compliance, processes and procedures, and cryptography): full Level 1–5 criteria, assessor guidance, evidence examples, overlay weights, and 25 status-labelled regulatory and standards references listed per category for display in the assessment application. Includes persona coverage for software vendors and certificate-consuming organizations (v0.4.0) and reworked segregation-of-duties criteria (v0.3.0).
 - **In development** — Management module: source content complete and under review; YAML conversion in progress. Operations and Resources modules: PQC-critical considerations identified at outline level.
-- **YAML version** — `0.5.1`. The extension version will move to `1.0.0` when all modules reach full Level 1–5 development and the working group endorses the content.
+- **YAML version** — `0.6.0`. The extension version will move to `1.0.0` when all modules reach full Level 1–5 development and the working group endorses the content.
 
 ### Overlay design
 
 Earlier drafts treated two overlay designs as competing candidates: Governance-centric overlays, per-requirement multipliers on the Governance categories, and capability-centric overlays on operational capabilities such as crypto-agility and PQC training (section 7 of the v1.3 proposal). Development since then has reconciled them by module rather than choosing between them. The Governance overlays are published in the current YAML. Overlays for the Management module, including change management and agility, are drafted in the Module 2 source content now under review, and training-related overlays will follow with the Resources module. The working group reviews each module's overlays as part of that module's release.
 
-The v2.0.0 model's new Cryptography category, including its crypto-agility requirement, is planned for extension coverage in a forthcoming revision.
+The v2.0.0 model's Cryptography category is covered as of extension version 0.6.0, with a relevance entry and overlays on all six requirements.
 
 ## Scope
 
